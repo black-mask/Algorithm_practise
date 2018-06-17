@@ -5,6 +5,7 @@ class Node(object):
 
 
 class SLList(object):
+    '''单链表'''
     def __init__(self):
         self._head = None
 
@@ -27,6 +28,7 @@ class SLList(object):
         print('')
 
     def get_reversed_val(self):
+        # 取出链表反转后的序列整数
         n, value = 0, 0
         p = self._head
         while p is not None:
@@ -41,6 +43,7 @@ class Solution(object):
     def addTwoNum(self, list1, list2):
         num = list1.get_reversed_val() + list2.get_reversed_val()
         newlist = SLList()
+        # 结果反序形成链表
         while num > 0:
             i = num % 10
             num = num // 10
