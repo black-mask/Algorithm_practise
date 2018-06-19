@@ -12,6 +12,9 @@ class SingleLinkList(object):
         return self._head is None
 
     def append(self, elem):
+        self._head = Node(elem, self._head)
+
+    def append_last(self, elem):
         if self._head is None:
             self._head = Node(elem)
             return
@@ -29,10 +32,21 @@ class SingleLinkList(object):
             p = p.next
         print('')
 
+    def rev_(self):
+        q = None
+        while self._head is not None:
+            p = self._head
+            self._head = self._head.next
+            p.next = q
+            q = p
+        self._head = q
+
 
 if __name__ == '__main__':
     llist = SingleLinkList()
     for i in range(11, 25):
         llist.append(i)
+    llist.print_all()
+    llist.rev_()
     llist.print_all()
 
