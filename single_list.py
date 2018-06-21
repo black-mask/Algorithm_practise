@@ -11,6 +11,16 @@ class SingleLinkList(object):
     def is_empty(self):
         return self._head is None
 
+    def len(self):
+        count = 0
+        if self._head is None:
+            return count
+        p = self._head
+        while p is not None:
+            p = p.next
+            count += 1
+        return count
+
     def append(self, elem):
         self._head = Node(elem, self._head)
 
